@@ -1,0 +1,24 @@
+{
+  "name": "angular1_practice",
+  "version": "1.0.0",
+  "description": "Angular 1.6 Practice set",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riaconsultant/Angular1_Practice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/riaconsultant/Angular1_Practice/issues"
+  },
+  "homepage": "https://github.com/riaconsultant/Angular1_Practice#readme",
+  "dependencies": {
+    "angular": "^1.6.6",
+    "angular-ui-router": "^0.4.3"
+  }
+}
