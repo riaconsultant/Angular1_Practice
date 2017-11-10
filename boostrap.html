@@ -2,28 +2,55 @@
     <head>
         <script src="node_modules/angular/angular.min.js"></script>
         <script>
-        var app = angular.module("asd",[])
-        .controller("myCtrl",function($scope,$http){
+        var app = angular.module("app",[]);
+        app.controller("myCtrl",function($scope,abcd){
             $scope.name="Mann";
-            
-        }).directive("myDir",function(){
-            return{
-                restrict:'E',
-                template:'<div>Hello World !!</div>'
+            //abcd.getData();
+            //$scope.data={};
+            //$scope.data.hello = "asdasd";
+        });
+        app.directive('mydir',function(){
+            return {
+                restrict:'EA',
+                //template:'<div>Hello World !!</div>'
+                templateUrl:"div.directive.html",
+                scope :{ data:"=data" }
+
             }
-        }).service("abcd",function($http){
+        });
+        app.service("abcd",function($http){
+            this.getData= function(){
+                $http.get("http://localhost/").then(function(result,error){
+                    console.log(result);
+                    console.log(error);
+                });
+            }
             
-            $http.get("http://google.com").then(function(result,error){
-                console.log(result);
-                console.log(error);
-            });
+        });
+        </script>
+        <script>
+        myapp = angular.module("myapp", []);
+
+        myapp.directive('div1', function() {
+            var directive = {};
+            directive.restrict = 'E'; /* restrict this directive to elements */
+            directive.template = "My first directive: {{textToInsert}}";
+            return directive;
         });
         </script>
     </head>
-    <body ng-app="asd">
-        <div ng-controller="myCtrl">
-            {{name +1}}
+    <body>
+        <div ng-app="app">
+            <div ng-controller="myCtrl">
+                {{name +1}}
+                <mydir data="Manoj"></mydir>
+            </div>
         </div>
-        <myDir ></myDir>
+        <div ng-app="myapp">
+            <div ng-controller="MyController">
+                <div>This div will be replaced</div>
+                <div1></div1>
+            </div>
+        </div>
     </body>
     </html>
