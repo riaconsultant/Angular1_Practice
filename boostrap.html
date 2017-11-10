@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <script src="node_modules/angular/angular.min.js"></script>
+        <script>
+        var app = angular.module("asd",[])
+        .controller("myCtrl",function($scope,$http){
+            $scope.name="Mann";
+            
+        }).directive("myDir",function(){
+            return{
+                restrict:'E',
+                template:'<div>Hello World !!</div>'
+            }
+        }).service("abcd",function($http){
+            
+            $http.get("http://google.com").then(function(result,error){
+                console.log(result);
+                console.log(error);
+            });
+        });
+        </script>
+    </head>
+    <body ng-app="asd">
+        <div ng-controller="myCtrl">
+            {{name +1}}
+        </div>
+        <myDir ></myDir>
+    </body>
+    </html>
