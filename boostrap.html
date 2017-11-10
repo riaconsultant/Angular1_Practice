@@ -7,9 +7,9 @@
             $scope.name="Mann";
             //abcd.getData();
             //$scope.data={};
-            //$scope.data.hello = "asdasd";
+            $scope.Manoj = "asdasd";
         });
-        app.directive('mydir',function(){
+        app.directive('mydir',["$interval",function(){
             return {
                 restrict:'EA',
                 //template:'<div>Hello World !!</div>'
@@ -17,7 +17,7 @@
                 scope :{ data:"=data" }
 
             }
-        });
+        }]);
         app.service("abcd",function($http){
             this.getData= function(){
                 $http.get("http://localhost/").then(function(result,error){
